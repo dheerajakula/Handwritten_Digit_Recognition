@@ -16,9 +16,9 @@ import time
 import utils
 
 # Define paramaters for the model
-learning_rate = 0.01
-batch_size = 128
-n_epochs = 30
+learning_rate = 0.005
+batch_size = 64
+n_epochs = 200
 n_train = 60000
 n_test = 10000
 
@@ -63,12 +63,35 @@ w, b = tf.get_variable(name='weights', shape=(784, 10), initializer=tf.random_no
 #############################
 ########## TO DO ############
 #############################
+n_hidden_1 = 256 # 1st layer number of neurons
+n_hidden_2 = 256 # 2nd layer number of neurons
+num_input = 784 # MNIST data input (img shape: 28*28)
+num_classes = 10 # MNIST total classes (0-9 digits)
 
+weights = {
+    'h1': tf.Variable(tf.random_normal([num_input, n_hidden_1])),
+    'h2': tf.Variable(tf.random_normal([n_hidden_1, n_hidden_2])),
+    'out': tf.Variable(tf.random_normal([n_hidden_2, num_classes]))
+}
+biases = {
+    'b1': tf.Variable(tf.random_normal([n_hidden_1])),
+    'b2': tf.Variable(tf.random_normal([n_hidden_2])),
+    'out': tf.Variable(tf.random_normal([num_classes]))
+}
 
 # Step 4: build model
 # the model that returns the logits.
 # this logits will be later passed through softmax layer
-logits = tf.matmul(img, w) + b
+def neural_net(x):
+    # Hidden fully connected layer with 256 neurons
+    layer_1 = tf.add(tf.matmul(x, weights['h1']), biases['b1'])
+    # Hidden fully connected layer with 256 neurons
+    layer_2 = tf.add(tf.matmul(layer_1, weights['h2']), biases['b2'])
+    # Output fully connected layer with a neuron for each class
+    out_layer = tf.matmul(layer_2, weights['out']) + biases['out']
+    return out_layer
+
+logits = neural_net(img)
 #############################
 ########## TO DO ############
 #############################
@@ -115,6 +138,17 @@ with tf.Session() as sess:
         except tf.errors.OutOfRangeError:
             pass
         print('Average loss epoch {0}: {1}'.format(i, total_loss/n_batches))
+        
+        sess.run(test_init)
+        total_correct_preds = 0
+        try:
+            while True:
+                accuracy_batch = sess.run(accuracy)
+                total_correct_preds += accuracy_batch
+        except tf.errors.OutOfRangeError:
+            pass
+
+        print('Accuracy {0}'.format(total_correct_preds/n_test))
     print('Total time: {0} seconds'.format(time.time() - start_time))
 
     # test the model

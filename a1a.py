@@ -127,5 +127,5 @@ with tf.Session() as sess:
     except tf.errors.OutOfRangeError:
         pass
 
-    print('Accuracy {0}'.format(total_correct_preds/n_test))
+    print('Final Testing Accuracy after {0} epochs is {1}% '.format(n_epochs, (total_correct_preds/n_test)*100))
 writer.close()

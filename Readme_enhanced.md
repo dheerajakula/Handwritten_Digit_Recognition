@@ -239,7 +239,8 @@ Used a Convolutional neural network to classify the MNIST hand written dataset. 
 | max_pool3 | Max pool Layer|2 X 2 | 2 X 2 |VALID| 64 | 64|
 | hiddenlayer | Neural Layer| - | - |-| 2304 | 512|
 | outputlayer | Neural Layer| - | - |-| 512 | 10|  
-ReLU activation function and dropout of 0.9(keep probability) is applied to the output of hidden layer to prevent overfitting.
+
+ReLU activation function and dropout of 0.9(keep probability) is applied to the output of hidden layer to prevent overfitting.  
 The output logits from output layer are connected to softmax activation function. Used stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.005 to minimize the cross entropy loss.
 
 **Parameters:**  

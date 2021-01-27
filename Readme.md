@@ -46,7 +46,8 @@ Often these n equations are stacked together and written in matrix notation as
 <p align="center"><img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20&#x5C;mathbf%20{y}%20=X{&#x5C;boldsymbol%20{&#x5C;beta%20}}+{&#x5C;boldsymbol%20{&#x5C;varepsilon%20}},&#x5C;,}"/></p>  
   
   
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?&#x5C;mathbf%20{y}%20={&#x5C;begin{pmatrix}y_{1}&#x5C;&#x5C;y_{2}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;y_{n}&#x5C;end{pmatrix}},&#x5C;quad%20{&#x5C;displaystyle%20X={&#x5C;begin{pmatrix}&#x5C;mathbf%20{x}%20_{1}^{&#x5C;mathsf%20{T}}&#x5C;&#x5C;&#x5C;mathbf%20{x}%20_{2}^{&#x5C;mathsf%20{T}}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;&#x5C;mathbf%20{x}%20_{n}^{&#x5C;mathsf%20{T}}&#x5C;end{pmatrix}}={&#x5C;begin{pmatrix}1&amp;x_{11}&amp;&#x5C;cdots%20&amp;x_{1p}&#x5C;&#x5C;1&amp;x_{21}&amp;&#x5C;cdots%20&amp;x_{2p}&#x5C;&#x5C;&#x5C;vdots%20&amp;&#x5C;vdots%20&amp;&#x5C;ddots%20&amp;&#x5C;vdots%20&#x5C;&#x5C;1&amp;x_{n1}&amp;&#x5C;cdots%20&amp;x_{np}&#x5C;end{pmatrix}},}"/></p>  
+<p align="center"><img src="https://latex.codecogs.com/gif.latex?&#x5C;mathbf%20{y}%20={&#x5C;begin{pmatrix}y_{1}&#x5C;&#x5C;y_{2}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;y_{n}&#x5C;end{pmatrix}},&#x5C;quad%20
+{&#x5C;displaystyle%20X={&#x5C;begin{pmatrix}&#x5C;mathbf%20{x}%20_{1}^{&#x5C;mathsf%20{T}}&#x5C;&#x5C;&#x5C;mathbf%20{x}%20_{2}^{&#x5C;mathsf%20{T}}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;&#x5C;mathbf%20{x}%20_{n}^{&#x5C;mathsf%20{T}}&#x5C;end{pmatrix}}={&#x5C;begin{pmatrix}1&amp;x_{11}&amp;&#x5C;cdots%20&amp;x_{1p}&#x5C;&#x5C;1&amp;x_{21}&amp;&#x5C;cdots%20&amp;x_{2p}&#x5C;&#x5C;&#x5C;vdots%20&amp;&#x5C;vdots%20&amp;&#x5C;ddots%20&amp;&#x5C;vdots%20&#x5C;&#x5C;1&amp;x_{n1}&amp;&#x5C;cdots%20&amp;x_{np}&#x5C;end{pmatrix}},}"/></p>  
   
   
 <p align="center"><img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20{&#x5C;boldsymbol%20{&#x5C;beta%20}}={&#x5C;begin{pmatrix}&#x5C;beta%20_{0}&#x5C;&#x5C;&#x5C;beta%20_{1}&#x5C;&#x5C;&#x5C;beta%20_{2}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;&#x5C;beta%20_{p}&#x5C;end{pmatrix}},&#x5C;quad{&#x5C;boldsymbol%20{&#x5C;varepsilon%20}}={&#x5C;begin{pmatrix}&#x5C;varepsilon%20_{1}&#x5C;&#x5C;&#x5C;varepsilon%20_{2}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;&#x5C;varepsilon%20_{n}&#x5C;end{pmatrix}}.}"/></p>  
@@ -252,6 +253,7 @@ Used a Convolutional neural network to classify the MNIST hand written dataset. 
 | max_pool3 | Max pool Layer|2 X 2 | 2 X 2 |VALID| 64 | 64|
 | hiddenlayer | Neural Layer| - | - |-| 2304 | 512|
 | outputlayer | Neural Layer| - | - |-| 512 | 10|
+
 ReLU activation function and dropout of 0.9(keep probability) is applied to the output of hidden layer to prevent overfitting.
 The output logits from output layer are connected to softmax activation function. Used stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.005 to minimize the cross entropy loss.
   

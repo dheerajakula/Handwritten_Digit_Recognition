@@ -5,7 +5,7 @@
  The aim of this project is to classify images of numbers as the digit that it represents without the aid of human eyes. We are going to teach a machine how to predict that number by showing it many samples that are already labelled then we are going to ask the machine to predict the values on unlabelled images to test its accuracy. The goal is to reach highest accuracy possible in the least amount of time so that we have a sentient being which can look at a sudoku puzzle and extract the numbers from it or read the number plate of cars etc.
  The algorithms that we use to train the machine with a set of examples or experience without hardcoding the rules are called machine learning algorithms. The following report consists of implementations of several such machine learning algorithms. I used my own Convolutional Neural Network architecture which gave a accuracy of  **97.94** in just 10 epochs.The models are written in Tensorflow from scratch without any higher level API like keras. MNIST handwritten digits dataset from Yann LeCun website is used for training and testing. The MNIST dataset images look like this:
   
- ![](images/mnist.png?0.3983743740933934 "my title")  
+ ![](images/mnist.png?0.10022414284944459 "my title")  
 Each digit is its own image.
   
 ##  How to run
@@ -33,26 +33,6 @@ python a1b.py
 ##  Basics
   
   
-####  Linear Regression
-  
-Given a data set <img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20&#x5C;{y_{i},&#x5C;,x_{i1},&#x5C;ldots%20,x_{ip}&#x5C;}_{i=1}^{n}}"/> of n statistical units, a linear regression model assumes that the relationship between the dependent variable y and the p-vector of regressors x is linear. This relationship is modeled through a disturbance term or error variable ε — an unobserved random variable that adds "noise" to the linear relationship between the dependent variable and regressors. Thus the model takes the form
-  
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20y_{i}=&#x5C;beta%20_{0}+&#x5C;beta%20_{1}x_{i1}+&#x5C;cdots%20+&#x5C;beta%20_{p}x_{ip}+&#x5C;varepsilon%20_{i}=&#x5C;mathbf%20{x}%20_{i}^{&#x5C;mathsf%20{T}}{&#x5C;boldsymbol%20{&#x5C;beta%20}}+&#x5C;varepsilon%20_{i},&#x5C;qquad%20i=1,&#x5C;ldots%20,n,}"/></p>  
-  
-where T denotes the transpose, so that xiTβ is the inner product between vectors xi and β.
-  
-Often these n equations are stacked together and written in matrix notation as
-  
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20&#x5C;mathbf%20{y}%20=X{&#x5C;boldsymbol%20{&#x5C;beta%20}}+{&#x5C;boldsymbol%20{&#x5C;varepsilon%20}},&#x5C;,}"/></p>  
-  
-  
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?&#x5C;mathbf%20{y}%20={&#x5C;begin{pmatrix}y_{1}&#x5C;&#x5C;y_{2}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;y_{n}&#x5C;end{pmatrix}},&#x5C;quad%20
-{&#x5C;displaystyle%20X={&#x5C;begin{pmatrix}&#x5C;mathbf%20{x}%20_{1}^{&#x5C;mathsf%20{T}}&#x5C;&#x5C;&#x5C;mathbf%20{x}%20_{2}^{&#x5C;mathsf%20{T}}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;&#x5C;mathbf%20{x}%20_{n}^{&#x5C;mathsf%20{T}}&#x5C;end{pmatrix}}={&#x5C;begin{pmatrix}1&amp;x_{11}&amp;&#x5C;cdots%20&amp;x_{1p}&#x5C;&#x5C;1&amp;x_{21}&amp;&#x5C;cdots%20&amp;x_{2p}&#x5C;&#x5C;&#x5C;vdots%20&amp;&#x5C;vdots%20&amp;&#x5C;ddots%20&amp;&#x5C;vdots%20&#x5C;&#x5C;1&amp;x_{n1}&amp;&#x5C;cdots%20&amp;x_{np}&#x5C;end{pmatrix}},}"/></p>  
-  
-  
-<p align="center"><img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20{&#x5C;boldsymbol%20{&#x5C;beta%20}}={&#x5C;begin{pmatrix}&#x5C;beta%20_{0}&#x5C;&#x5C;&#x5C;beta%20_{1}&#x5C;&#x5C;&#x5C;beta%20_{2}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;&#x5C;beta%20_{p}&#x5C;end{pmatrix}},&#x5C;quad{&#x5C;boldsymbol%20{&#x5C;varepsilon%20}}={&#x5C;begin{pmatrix}&#x5C;varepsilon%20_{1}&#x5C;&#x5C;&#x5C;varepsilon%20_{2}&#x5C;&#x5C;&#x5C;vdots%20&#x5C;&#x5C;&#x5C;varepsilon%20_{n}&#x5C;end{pmatrix}}.}"/></p>  
-  
-  
 ####  Logistic Model
   
 In statistics, the logistic model (or logit model) is used to model the probability of a certain class or event existing such as pass/fail, win/lose, alive/dead or healthy/sick. This can be extended to model several classes of events such as determining whether an image contains a cat, dog, lion, etc. Each object being detected in the image would be assigned a probability between 0 and 1, with a sum of one.
@@ -61,7 +41,7 @@ In statistics, the logistic model (or logit model) is used to model the probabil
   
 The softmax function is a function that turns a vector of K real values into a vector of K real values that sum to 1. The input values can be positive, negative, zero, or greater than one, but softmax function transforms them into values between 0 and 1, so that they can be interpreted as probabilities.
   
-<img src="images/softmax.jpeg?0.5774479270191188"  width="300px" >
+<img src="images/softmax.jpeg?0.129468517623607"  width="300px" >
   
 ####  Cross Entropy Loss
   
@@ -93,17 +73,18 @@ Where p(x) is the true probability distribution, and q(x) the predicted probabil
 So that is how "wrong" or "far away" your prediction is from the true distribution.
 ####  Gradient Descent
   
-Gradient descent is based on the observation that if the multi-variable function <img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20F(&#x5C;mathbf%20{x}%20)}"/> is defined and differentiable in a neighborhood of a point <img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20&#x5C;mathbf%20{a}%20}%20,%20then%20{&#x5C;displaystyle%20F(&#x5C;mathbf%20{x})}"/> decreases fastest if one goes from <img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20&#x5C;mathbf%20{a}%20}"/>  in the direction of the negative gradient of <img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20F}F%20at%20{&#x5C;displaystyle%20&#x5C;mathbf%20{a}%20,-&#x5C;nabla%20F(&#x5C;mathbf%20{a}%20)}."/> It follows that, if
+Gradient descent is based on the observation that if the multi-variable function <img src="https://latex.codecogs.com/gif.latex?F(&#x5C;mathbf%20{x}%20)"/> is defined and differentiable in a neighborhood of a point <img src="https://latex.codecogs.com/gif.latex?&#x5C;mathbf%20{a}"/> , then <img src="https://latex.codecogs.com/gif.latex?F(&#x5C;mathbf%20{x}%20)"/> decreases fastest if one goes from <img src="https://latex.codecogs.com/gif.latex?&#x5C;mathbf%20{a}"/>  in the direction of the negative gradient of <img src="https://latex.codecogs.com/gif.latex?F"/> at <img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20&#x5C;mathbf%20{a}%20,-&#x5C;nabla%20F(&#x5C;mathbf%20{a}%20)}"/>. It follows that, if
   
 <p align="center"><img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20&#x5C;mathbf%20{a}%20_{n+1}=&#x5C;mathbf%20{a}%20_{n}-&#x5C;gamma%20&#x5C;nabla%20F(&#x5C;mathbf%20{a}%20_{n})}"/></p>  
   
+for <img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20&#x5C;gamma%20&#x5C;in%20&#x5C;mathbb%20{R}%20_{+}}"/> small enough, then <img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20F(&#x5C;mathbf%20{a_{n}}%20)&#x5C;geq%20F(&#x5C;mathbf%20{a_{n+1}}%20)}"/>. In other words, the term <img src="https://latex.codecogs.com/gif.latex?{&#x5C;displaystyle%20&#x5C;gamma%20&#x5C;nabla%20F(&#x5C;mathbf%20{a}%20)}"/> is subtracted from <img src="https://latex.codecogs.com/gif.latex?&#x5C;mathbf%20{a}"/>  because we want to move against the gradient, toward the local minimum.
   
 ##  Using logistic regression to classify image data
   
   
 **Model:**  
   
-Simple Logistic regression with 784 inputs and 10 outputs. The code resides in [a1a.py]( ). The ouput logits from wX+b are connected to softmax activation function. Used mini batch stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.01 to minimize the cross entropy loss.
+Simple Logistic regression with 784 inputs and 10 outputs. The code resides in [a1a.py](https://github.com/dheerajakula/Handwritten_Digit_Recognition/blob/main/a1a.py ). The ouput logits from wX+b are connected to softmax activation function. Used mini batch stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.01 to minimize the cross entropy loss.
   
 **Parameters**  
   
@@ -116,7 +97,7 @@ n_test = 10000
   
 **TensorBoard Graph:**  
   
-![](images/tensorboard_logreg.png?0.5517168951737539 )  
+![](images/tensorboard_logreg.png?0.9695924225884096 )  
   
   
 **Accuracy Results:**  
@@ -158,7 +139,7 @@ Total time: 18.58875298500061 seconds
   
 **Model:**  
   
-Used a deep neural network to classify the MNIST hand written dataset. The code resides in [a1c.py]( ). The deep neural network consists of 2 hidden layers and one output layer. The first hidden layer has 1024 neurons the second hidden layer consists of 256 neurons and the final output layer consists of 10 neurons. The output logits from output layer are connected to softmax activation function. Used stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.005 to minimize the cross entropy loss.
+Used a deep neural network to classify the MNIST hand written dataset. The code resides in [a1c.py](https://github.com/dheerajakula/Handwritten_Digit_Recognition/blob/main/a1c.py ). The deep neural network consists of 2 hidden layers and one output layer. The first hidden layer has 1024 neurons the second hidden layer consists of 256 neurons and the final output layer consists of 10 neurons. The output logits from output layer are connected to softmax activation function. Used stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.005 to minimize the cross entropy loss.
   
 **Parameters**  
   
@@ -171,7 +152,7 @@ n_test = 10000
   
 **TensorBoard Graph:**  
   
-![](images/tensorboard_dnn.png?0.0585185364287526 )  
+![](images/tensorboard_dnn.png?0.9975592077017423 )  
   
   
 **Accuracy Results:**  
@@ -247,7 +228,7 @@ Total time: 172.84515070915222 seconds
   
 **Model:**  
   
-Used a Convolutional neural network to classify the MNIST hand written dataset. The code resides in [a1b.py]( ). The convolutional neural network is a combination of 3 convolutional layers, 3 max pool layers, 1 hidden neural and finally one output layer.
+Used a Convolutional neural network to classify the MNIST hand written dataset. The code resides in [a1b.py](https://github.com/dheerajakula/Handwritten_Digit_Recognition/blob/main/a1b.py ). The convolutional neural network is a combination of 3 convolutional layers, 3 max pool layers, 1 hidden neural and finally one output layer.
 | Layer Name  |Type| Kernel Size | Stride | Padding| Input layers/Neurons| Output layers/Neurons
 | -----------  | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | conv1 | Convolutional Layer|3 X 3 | 1 X 1 |SAME| 1 | 16|
@@ -271,7 +252,7 @@ n_test = 10000
 num_classes = 10  
   
 **TensorBoard Graph:**
-![](images/tensorboard_cnn.png?0.999193010875606 )  
+![](images/tensorboard_cnn.png?0.8937814103444992 )  
   
 **Accuracy:**  
 Training Average loss epoch 0: 10092.289313595795  
@@ -295,13 +276,19 @@ Testing Accuracy epoch 8: 97.50999999999999%
 Training Average loss epoch 9: 99.9249820900778  
 Testing Accuracy epoch 9: 97.94%  
 Total time: 189.2675199508667 seconds  
-**Final Testing Accuracy after 10 epochs is 97.94%**
+**Final Testing Accuracy after 10 epochs is 97.94%**  
+  
+**Loss of Training Samples**  
+<img src="images/trainingloss.svg?0.07284841661453711"  width="300" >
+  
+**Loss of Testing Samples**  
+<img src="images/testingloss.svg?0.9759106210080204"  width="300" >
   
 ##  Problems Faced:
   
 **Task 1.  Using logistic regression to classify image data**  
   
-Had several issues running the code in windows. Tensorflow v1.4.1 is not available so downloaded the v1.15.0. The dataset I downloaded has different compressions in windows so had to tweak some things to make it work. I made both task1 and task2 run in both windows 10 and ubuntu 20 with some tweaks. a1a.py had a error that the *data* variable is used without initialization.  
+Had several issues running the code in windows. Tensorflow v1.4.1 is not available so downloaded the v1.15.0. The dataset I downloaded has different compressions in windows so had to tweak some things to make it work. I made both task1 and task2 run in both windows 10 and ubuntu 20 with some tweaks. [a1a.py](https://github.com/dheerajakula/Handwritten_Digit_Recognition/blob/main/a1a.py ) had an error initially that the *data* variable is used without initialization.  
   
 **Task 2.  Improve the model of Task 1.**  
   

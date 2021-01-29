@@ -29,21 +29,6 @@ python a1b.py
 
 ## Basics
 
-#### Linear Regression
-Given a data set $ {\displaystyle \{y_{i},\,x_{i1},\ldots ,x_{ip}\}_{i=1}^{n}}$ of n statistical units, a linear regression model assumes that the relationship between the dependent variable y and the p-vector of regressors x is linear. This relationship is modeled through a disturbance term or error variable ε — an unobserved random variable that adds "noise" to the linear relationship between the dependent variable and regressors. Thus the model takes the form
-
-$${\displaystyle y_{i}=\beta _{0}+\beta _{1}x_{i1}+\cdots +\beta _{p}x_{ip}+\varepsilon _{i}=\mathbf {x} _{i}^{\mathsf {T}}{\boldsymbol {\beta }}+\varepsilon _{i},\qquad i=1,\ldots ,n,}$$
-where T denotes the transpose, so that xiTβ is the inner product between vectors xi and β.
-
-Often these n equations are stacked together and written in matrix notation as
-
-$$ {\displaystyle \mathbf {y} =X{\boldsymbol {\beta }}+{\boldsymbol {\varepsilon }},\,} $$
-
-$$\mathbf {y} ={\begin{pmatrix}y_{1}\\y_{2}\\\vdots \\y_{n}\end{pmatrix}},\quad 
-{\displaystyle X={\begin{pmatrix}\mathbf {x} _{1}^{\mathsf {T}}\\\mathbf {x} _{2}^{\mathsf {T}}\\\vdots \\\mathbf {x} _{n}^{\mathsf {T}}\end{pmatrix}}={\begin{pmatrix}1&x_{11}&\cdots &x_{1p}\\1&x_{21}&\cdots &x_{2p}\\\vdots &\vdots &\ddots &\vdots \\1&x_{n1}&\cdots &x_{np}\end{pmatrix}},}$$
-
-$${\displaystyle {\boldsymbol {\beta }}={\begin{pmatrix}\beta _{0}\\\beta _{1}\\\beta _{2}\\\vdots \\\beta _{p}\end{pmatrix}},\quad{\boldsymbol {\varepsilon }}={\begin{pmatrix}\varepsilon _{1}\\\varepsilon _{2}\\\vdots \\\varepsilon _{n}\end{pmatrix}}.}$$
-
 #### Logistic Model
 In statistics, the logistic model (or logit model) is used to model the probability of a certain class or event existing such as pass/fail, win/lose, alive/dead or healthy/sick. This can be extended to model several classes of events such as determining whether an image contains a cat, dog, lion, etc. Each object being detected in the image would be assigned a probability between 0 and 1, with a sum of one.
 
@@ -78,15 +63,16 @@ $$ H = - (0.0*ln(0.228) + 1.0*ln(0.619) + 0.0*ln(0.153)) = 0.479 $$
 
 So that is how "wrong" or "far away" your prediction is from the true distribution.
 #### Gradient Descent
-Gradient descent is based on the observation that if the multi-variable function ${\displaystyle F(\mathbf {x} )}$ is defined and differentiable in a neighborhood of a point ${\displaystyle \mathbf {a} } , then {\displaystyle F(\mathbf {x})} $ decreases fastest if one goes from ${\displaystyle \mathbf {a} }$  in the direction of the negative gradient of ${\displaystyle F}F at {\displaystyle \mathbf {a} ,-\nabla F(\mathbf {a} )}.$ It follows that, if
+Gradient descent is based on the observation that if the multi-variable function $F(\mathbf {x} )$ is defined and differentiable in a neighborhood of a point $\mathbf {a}$ , then $F(\mathbf {x} )$ decreases fastest if one goes from $\mathbf {a}$  in the direction of the negative gradient of $F$ at ${\displaystyle \mathbf {a} ,-\nabla F(\mathbf {a} )}$. It follows that, if
 
 $${\displaystyle \mathbf {a} _{n+1}=\mathbf {a} _{n}-\gamma \nabla F(\mathbf {a} _{n})}$$
+for ${\displaystyle \gamma \in \mathbb {R} _{+}}$ small enough, then ${\displaystyle F(\mathbf {a_{n}} )\geq F(\mathbf {a_{n+1}} )}$. In other words, the term ${\displaystyle \gamma \nabla F(\mathbf {a} )}$ is subtracted from $\mathbf {a}$  because we want to move against the gradient, toward the local minimum.
 
 ## Using logistic regression to classify image data
 
 **Model:**  
 
-Simple Logistic regression with 784 inputs and 10 outputs. The code resides in [a1a.py](). The ouput logits from wX+b are connected to softmax activation function. Used mini batch stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.01 to minimize the cross entropy loss.
+Simple Logistic regression with 784 inputs and 10 outputs. The code resides in [a1a.py](https://github.com/dheerajakula/Handwritten_Digit_Recognition/blob/main/a1a.py). The ouput logits from wX+b are connected to softmax activation function. Used mini batch stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.01 to minimize the cross entropy loss.
 
 **Parameters**  
 
@@ -140,7 +126,7 @@ Total time: 18.58875298500061 seconds
 ## Using Deep Neural Networks to classify image data
 **Model:**  
 
-Used a deep neural network to classify the MNIST hand written dataset. The code resides in [a1c.py](). The deep neural network consists of 2 hidden layers and one output layer. The first hidden layer has 1024 neurons the second hidden layer consists of 256 neurons and the final output layer consists of 10 neurons. The output logits from output layer are connected to softmax activation function. Used stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.005 to minimize the cross entropy loss.
+Used a deep neural network to classify the MNIST hand written dataset. The code resides in [a1c.py](https://github.com/dheerajakula/Handwritten_Digit_Recognition/blob/main/a1c.py). The deep neural network consists of 2 hidden layers and one output layer. The first hidden layer has 1024 neurons the second hidden layer consists of 256 neurons and the final output layer consists of 10 neurons. The output logits from output layer are connected to softmax activation function. Used stochastic gradient descent with batch size of 128 and adam optimizer with learning rate of 0.005 to minimize the cross entropy loss.
 
 **Parameters**  
 
@@ -228,7 +214,7 @@ Total time: 172.84515070915222 seconds
 ## Using Convolutional Neural Networks to classify image data
 **Model:**  
 
-Used a Convolutional neural network to classify the MNIST hand written dataset. The code resides in [a1b.py](). The convolutional neural network is a combination of 3 convolutional layers, 3 max pool layers, 1 hidden neural and finally one output layer.
+Used a Convolutional neural network to classify the MNIST hand written dataset. The code resides in [a1b.py](https://github.com/dheerajakula/Handwritten_Digit_Recognition/blob/main/a1b.py). The convolutional neural network is a combination of 3 convolutional layers, 3 max pool layers, 1 hidden neural and finally one output layer.
 | Layer Name  |Type| Kernel Size | Stride | Padding| Input layers/Neurons| Output layers/Neurons
 | -----------  | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | conv1 | Convolutional Layer|3 X 3 | 1 X 1 |SAME| 1 | 16|
@@ -276,12 +262,18 @@ Testing Accuracy epoch 8: 97.50999999999999%
 Training Average loss epoch 9: 99.9249820900778  
 Testing Accuracy epoch 9: 97.94%  
 Total time: 189.2675199508667 seconds  
-**Final Testing Accuracy after 10 epochs is 97.94%**
+**Final Testing Accuracy after 10 epochs is 97.94%**  
+
+**Loss of Training Samples**  
+@import "/images/trainingloss.svg" {width="300"}  
+
+**Loss of Testing Samples**  
+@import "/images/testingloss.svg" {width="300"}  
 
 ## Problems Faced:
 **Task 1.  Using logistic regression to classify image data**  
 
-Had several issues running the code in windows. Tensorflow v1.4.1 is not available so downloaded the v1.15.0. The dataset I downloaded has different compressions in windows so had to tweak some things to make it work. I made both task1 and task2 run in both windows 10 and ubuntu 20 with some tweaks. a1a.py had a error that the *data* variable is used without initialization.  
+Had several issues running the code in windows. Tensorflow v1.4.1 is not available so downloaded the v1.15.0. The dataset I downloaded has different compressions in windows so had to tweak some things to make it work. I made both task1 and task2 run in both windows 10 and ubuntu 20 with some tweaks. [a1a.py](https://github.com/dheerajakula/Handwritten_Digit_Recognition/blob/main/a1a.py) had an error initially that the *data* variable is used without initialization.  
 
 **Task 2.  Improve the model of Task 1.**  
 

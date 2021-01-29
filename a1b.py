@@ -156,9 +156,9 @@ with tf.Session() as sess:
     start_time = time.time()
     sess.run(tf.global_variables_initializer())
 
-    t_l_2 = tf.summary.scalar("training loss", loss)
+    t_l_1 = tf.summary.scalar("training loss", loss)
 
-    t_l_1 = tf.summary.scalar("testing loss", loss)
+    t_l_2 = tf.summary.scalar("testing loss", loss)
     
     itern_train = 0
     itern_test = 0
